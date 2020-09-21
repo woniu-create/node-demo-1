@@ -23,9 +23,15 @@ var server = http.createServer(function (request, response) {
 
   console.log("有个傻子发请求过来啦！路径（带查询参数）为：" + pathWithQuery);
   if (path === "/") {
-    response.statusCode = 299;
+    response.statusCode = 200;
     response.setHeader("Content-Type", "text/html;charset=utf-8");
-    response.write(`二哈`);
+    response.write(`
+     <!DOCTYPE html>
+     <head>
+     <link rel="stylesheet" href="/x"></link>
+     </head>
+     <body>hello world</body>
+    `);
     response.end();
   } else if (path === "/x") {
     response.statusCode = 200;
